@@ -1,3 +1,6 @@
+import time
+
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
@@ -8,9 +11,6 @@ def test_find_button_add_to_basket(browser):
     try:
         browser.find_element(By.CSS_SELECTOR, ".btn-add-to-basket")
         flag_but = True
-
-    except:
-
+    except NoSuchElementException:
         flag_but = False
-
     assert flag_but, 'Такой кнопки нет ;('
